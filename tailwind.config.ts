@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme"
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config: Config = {
   content: [
@@ -16,6 +16,12 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-montserrat)', ...fontFamily.sans]
+      },
+      colors: {
+        dark: "#1b1b1b",
+        light: "#f5f5f5",
+        primary: "#b63e96", // 240,86,199
+        primaryDark: "#58e6d9", // 80,230,217
       }
     },
   },

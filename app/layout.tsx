@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import NavBar from "./components/NavBar";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -16,7 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <body className={`${montserrat.className} bg-light w-full min-h-screen`}>
+        <NavBar />
+        {children}
+        </body>
     </html>
   );
 }
