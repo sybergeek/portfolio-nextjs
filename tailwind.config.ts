@@ -22,6 +22,9 @@ const config: Config = {
         light: "#f5f5f5",
         primary: "#b63e96", // 240,86,199
         primaryDark: "#58e6d9", // 80,230,217
+      },
+      animation: {
+        'spin-slow': 'spin 8s linear infinite'
       }
     },
   },
