@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import React from 'react'
-import { CircularText } from './Icons'
+import Link from 'next/link';
+import React from 'react';
+import { CircularText } from './Icons';
 
 const HireMe = () => {
   return (
@@ -17,4 +17,4 @@ const HireMe = () => {
   )
 }
 
-export default HireMe
+export default HireMe;
