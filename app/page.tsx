@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Layout from "./components/Layout";
 import profilePic from "../public/images/profile/developer-pic-1.png";
