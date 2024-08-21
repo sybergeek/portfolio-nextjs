@@ -17,7 +17,7 @@ export const GithubIcon = ({ className='', ...rest }) => (
   </svg>
 );
 
-export const TwitterIcon = ({ className, ...rest }) => (
+export const TwitterIcon = ({ className='', ...rest }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -34,7 +34,7 @@ export const TwitterIcon = ({ className, ...rest }) => (
   </svg>
 );
 // #0A66C2
-export const LinkedInIcon = ({ className, ...rest }) => (
+export const LinkedInIcon = ({ className='', ...rest }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -55,7 +55,7 @@ export const LinkedInIcon = ({ className, ...rest }) => (
   </svg>
 );
 
-export const PinterestIcon = ({ className, ...rest }) => (
+export const PinterestIcon = ({ className='', ...rest }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -72,7 +72,7 @@ export const PinterestIcon = ({ className, ...rest }) => (
   </svg>
 );
 
-export const DribbbleIcon = ({ className, ...rest }) => (
+export const DribbbleIcon = ({ className='', ...rest }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -93,7 +93,7 @@ export const DribbbleIcon = ({ className, ...rest }) => (
   </svg>
 );
 
-export const SunIcon = ({ className, ...rest }) => (
+export const SunIcon = ({ className='', ...rest }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -271,7 +271,7 @@ export const SunIcon = ({ className, ...rest }) => (
   </svg>
 );
 
-export const MoonIcon = ({ className, ...rest }) => (
+export const MoonIcon = ({ className='', ...rest }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -427,7 +427,7 @@ export const MoonIcon = ({ className, ...rest }) => (
   </svg>
 );
 
-export const CircularText = ({ className, ...rest }) => (
+export const CircularText = ({ className='', ...rest }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="496"
@@ -441,7 +441,7 @@ export const CircularText = ({ className, ...rest }) => (
   </svg>
 );
 
-export const LinkArrow = ({ className, ...rest }) => (
+export const LinkArrow = ({ className='', ...rest }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}

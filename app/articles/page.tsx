@@ -13,27 +13,31 @@ import { useRef } from "react";
 
 const FramerImage = motion(Image);
 
-const MovingImage = ({title, img, link}) => {
+const MovingImage = ({title, img, link} : {title: any, img: any, link: any}) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const imgRef = useRef(null);
 
-  function handleMouse(event) {
-    imgRef.current.style.display = "inline-block";
-    x.set(event.pageX);
-    y.set(-10);
-  }
+  // function handleMouse({event}: {event: any}) {
+  //   if (imgRef.current) {
+  //     imgRef.current.style.display = "inline-block";
+  //     x.set(event.pageX);
+  //     y.set(-10);
+  //   }
+  // }
 
-  function handleMouseLeave(event) {
-    imgRef.current.style.display = "none";
-    x.set(0);
-    y.set(0);
-  }
+  // function handleMouseLeave({event} : {event: any}) {
+  //   if (imgRef.current) {
+  //     imgRef.current.style.display = "none";
+  //   x.set(0);
+  //   y.set(0);
+  //   }
+  // }
 
   return (
     <Link href={link} target="_blank"
-    onMouseMove={handleMouse}
-    onMouseLeave={handleMouseLeave}
+    // onMouseMove={handleMouse}
+    // onMouseLeave={handleMouseLeave}
     >
       <h2 className="capitalize text-xl font-semibold hover:underline">{title}</h2>
       <FramerImage
@@ -45,23 +49,24 @@ const MovingImage = ({title, img, link}) => {
   )
 }
 
-const Article = ({img, title, date, link}) => {
+const Article = ({img, title, date, link} : {img: any, title: any, date: any, link: any}) => {
   return <motion.li 
   initial={{ y: 200 }}
   whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
   viewport={{ once: true }}
   className="relative w-full p-4 py-6 my-4 rounded-xl flex items-center justify-between
-  bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4">
+  bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4
+  dark:bg-dark dark:text-light dark:border-light">
     <MovingImage title={title} img={img} link={link} />
-    <span  className="text-primary font-semibold pl-4">{date}</span>
+    <span  className="text-primary dark:text-primaryDark font-semibold pl-4">{date}</span>
   </motion.li>
 }
 
-const FeaturedArticle = ({img, title, time, summary, link}) => {
+const FeaturedArticle = ({img, title, time, summary, link} : {img: any, title: any, time: any, summary: any, link: any}) => {
   return <li className="col-span-1 w-full p-4 bg-light border border-solid
-  border-dark rounded-2xl relative">
+  border-dark rounded-2xl relative dark:bg-dark dark:border-light">
     <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[102.5%]
-      rounded-[2rem] bg-dark rounded-br-3xl" />
+      rounded-[2rem] bg-dark dark:bg-light rounded-br-3xl" />
     <Link href={link} target="_blank"
       className="w-full inline-block cursor-pointer overflow-hidden rounded-lg"
       >
@@ -74,7 +79,7 @@ const FeaturedArticle = ({img, title, time, summary, link}) => {
         <h2 className="capitalize text-2xl font-bold my-2 hover:underline mt-4">{title}</h2>
       </Link>
       <p className="text-sm mb-2">{summary}</p>
-      <span className="text-primary font-semibold">{time}</span>
+      <span className="text-primary dark:text-primaryDark font-semibold">{time}</span>
   </li>
 }
 
@@ -85,7 +90,8 @@ export default function Articles() {
         <title>Abhishek Sen | Articles Page</title>
         <meta name="description" content="any description" />
       </Head>
-      <main className="flex w-full flex-col items-center justify-center mb-16 overflow-hidden">
+      <main className="flex w-full flex-col items-center justify-center overflow-hidden
+      bg-light text-dark dark:bg-dark dark:text-light">
         <Layout className="pt-16">
           <AnimatedText text="Words Can Change The World!" className="mb-16" />
           <ul className="grid grid-cols-2 gap-16">

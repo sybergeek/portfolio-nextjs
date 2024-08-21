@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import LiIcon from './LiIcon';
 
-const Details = ({type, time, place, info}) => {
+const Details = ({type, time, place, info} : {type: any, time: any, place: any, info: any}) => {
   const ref = useRef(null);
   return <li ref={ref} className='my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between'>
     <LiIcon reference={ref} />
@@ -12,7 +12,7 @@ const Details = ({type, time, place, info}) => {
     transition={{duration: 0.5, type: "spring"}}
     >
       <h3 className='capitalize font-bold text-2xl'>{type}</h3>
-      <span className='capitalize font-medium text-dark/75'>
+      <span className='capitalize font-medium text-dark/75 dark:text-light/75'>
         {time} | {place}
       </span>
       <p className='font-medium w-full'>
@@ -40,7 +40,7 @@ const Education = () => {
       <div ref={ref} className='w-[75%] mx-auto relative'>
         <motion.div
         style={{ scaleY: scrollYProgress }}
-        className='absolute left-9 top-0 w-[4px] h-full bg-dark origin-top' />
+        className='absolute left-9 top-0 w-[4px] h-full bg-dark dark:bg-light origin-top' />
         <ul className='w-full flex flex-col items-start justify-between ml-4'>
           <Details type="Bachelor Of Science In Computer Science" time="2016-2020"
           place="Massachusetts Institute Of Technology (MIT)"
