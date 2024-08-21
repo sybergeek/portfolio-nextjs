@@ -36,5 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 # local assets
-/public/All-Texts
-/public/images
+# /public/All-Texts
+# /public/images
