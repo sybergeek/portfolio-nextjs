@@ -48,8 +48,8 @@ export default function About() {
             <div className="col-span-3 flex flex-col items-start justify-start">
               <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75">Biography</h2>
               <p className="font-medium">
-                Hi, I'm CodeBucks, a web developer and UI/UX designer with a passion for creating beautiful, functional, 
-                and user-centered digital experiences. With 4 years of experience in the field. I am always looking for 
+                Hi, I'm Abhishek, a full-stack web developer and UI/UX designer with a passion for creating beautiful, functional, 
+                and user-centered digital experiences. With 3+ years of experience in the field. I am always looking for 
                 new and innovative ways to bring my clients' visions to life.
               </p>
               <p className="my-4 font-medium">
@@ -67,24 +67,24 @@ export default function About() {
               <Image src={profilePic} alt="Abhishek Sen" className="w-full h-auto rounded-2xl" />
             </div>
             <div className="col-span-2 flex flex-col items-end justify-between">
-              <div className="flex flex-col items-end justify-center">
+              {/* <div className="flex flex-col items-end justify-center">
                 <span className="inline-block text-7xl font-bold">
-                  {/* <AnimatedNumbers value={50} />+ */}
+                  <AnimatedNumbers value={50} />+
                   50+
                 </span>
                 <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75">satisfied clients</h2>
-              </div>
+              </div> */}
               <div className="flex flex-col items-end justify-center">
                 <span className="inline-block text-7xl font-bold">
                   {/* <AnimatedNumbers value={40} />+ */}
-                  40+
+                  10+
                 </span>
                 <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75">projects completed</h2>
               </div>
               <div className="flex flex-col items-end justify-center">
                 <span className="inline-block text-7xl font-bold">
                   {/* <AnimatedNumbers value={4} />+ */}
-                  4+
+                  3+
                 </span>
                 <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75">years of experience</h2>
               </div>

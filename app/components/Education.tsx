@@ -4,7 +4,7 @@ import LiIcon from './LiIcon';
 
 const Details = ({type, time, place, info} : {type: any, time: any, place: any, info: any}) => {
   const ref = useRef(null);
-  return <li ref={ref} className='my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between'>
+  return <li ref={ref} className='my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-left justify-between'>
     <LiIcon reference={ref} />
     <motion.div
     initial={{y: 50}}
@@ -42,7 +42,14 @@ const Education = () => {
         style={{ scaleY: scrollYProgress }}
         className='absolute left-9 top-0 w-[4px] h-full bg-dark dark:bg-light origin-top' />
         <ul className='w-full flex flex-col items-start justify-between ml-4'>
-          <Details type="Bachelor Of Science In Computer Science" time="2016-2020"
+          <Details type="Bachelor of Engineering In Computer Science & Engineering" time="2017-2021"
+          place="Ramaiah Institute of Technology (RIT), Bangalore"
+          info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
+          Intelligence." />
+          <Details type="CBSE Senior Secondary Education" time="2004-2017"
+          place="DAV Model School, Durgapur"
+          info="Relevant courses included Mathematics and Computer Science." />
+          {/* <Details type="Bachelor Of Science In Computer Science" time="2016-2020"
           place="Massachusetts Institute Of Technology (MIT)"
           info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
           Intelligence." />
@@ -53,15 +60,7 @@ const Education = () => {
           <Details type="Bachelor Of Science In Computer Science" time="2016-2020"
           place="Massachusetts Institute Of Technology (MIT)"
           info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
-          Intelligence." />
-          <Details type="Bachelor Of Science In Computer Science" time="2016-2020"
-          place="Massachusetts Institute Of Technology (MIT)"
-          info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
-          Intelligence." />
-          <Details type="Bachelor Of Science In Computer Science" time="2016-2020"
-          place="Massachusetts Institute Of Technology (MIT)"
-          info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
-          Intelligence." />
+          Intelligence." /> */}
         </ul>
       </div>
     </div>
