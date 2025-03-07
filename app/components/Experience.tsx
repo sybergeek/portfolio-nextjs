@@ -44,31 +44,20 @@ const Experience = () => {
         style={{ scaleY: scrollYProgress }}
         className='absolute left-9 top-0 w-[4px] h-full bg-dark dark:bg-light origin-top' />
         <ul className='w-full flex flex-col items-start justify-between ml-4'>
-          <Details position="Software Engineer" company="Google" companyLink="http://google.com"
+          <Details position="Software Engineer 2" company="JPMorgan Chase" companyLink="https://www.jpmorganchase.com/"
+          time="2024-Present" address="Bengaluru, India"
+          work="Designed and developed the firmwide centralized workflow monitoring system using dynamic filtering and visualization tools, enhancing UX and reporting, reducing user toil by 1 hour daily per user. Tech Stack: Java, Spring, React." />
+          <Details position="Software Engineer 3" company="Morgan Stanley" companyLink="https://www.morganstanley.com/"
+          time="2021-2024" address="Bengaluru, India"
+          work="Redesigned the Realtime Funding Dashboard from a .NET monolith to a web-based microservices architecture, enhancing UX and saving $230K annually. Automated EOD balance reporting, reducing toil by 3.5 hours daily. Designed real-time funding automation to mitigate risk and save ~$10M annually. Developed a DevOps Metrics platform, improved IT processes, mentored engineers, and hosted coding best practice sessions. Led disaster recovery planning and scalability assessments. Provided on-call support and root cause analysis. Tech Stack: Java, Spring, Angular, React, Kafka, DB2." />
+          <Details position="PRISM Intern" company="Samsung Research" companyLink="https://research.samsung.com/sri-b"
+          time="2023-2023" address="Bengaluru, India"
+          work="Developed a Web Survey application for Search DCG Computation as part of Samsung PRISM, focusing on backend development with Node.js, Express.js, and MongoDB. Implemented optimizations for large-scale data processing, enabling real-time computation. Delivered on time, meeting performance benchmarks." />
+          {/* <Details position="Software Engineer" company="Google" companyLink="http://google.com"
           time="2022-Present" address="Mountain View, CA"
           work="Worked on a team responsible for developing new features for Google's 
           search engine, including improving the accuracy and relevance of search results and 
-          developing new tools for data analysis and visualization." />
-          <Details position="Software Engineer" company="Google" companyLink="http://google.com"
-          time="2022-Present" address="Mountain View, CA"
-          work="Worked on a team responsible for developing new features for Google's 
-          search engine, including improving the accuracy and relevance of search results and 
-          developing new tools for data analysis and visualization." />
-          <Details position="Software Engineer" company="Google" companyLink="http://google.com"
-          time="2022-Present" address="Mountain View, CA"
-          work="Worked on a team responsible for developing new features for Google's 
-          search engine, including improving the accuracy and relevance of search results and 
-          developing new tools for data analysis and visualization." />
-          <Details position="Software Engineer" company="Google" companyLink="http://google.com"
-          time="2022-Present" address="Mountain View, CA"
-          work="Worked on a team responsible for developing new features for Google's 
-          search engine, including improving the accuracy and relevance of search results and 
-          developing new tools for data analysis and visualization." />
-          <Details position="Software Engineer" company="Google" companyLink="http://google.com"
-          time="2022-Present" address="Mountain View, CA"
-          work="Worked on a team responsible for developing new features for Google's 
-          search engine, including improving the accuracy and relevance of search results and 
-          developing new tools for data analysis and visualization." />
+          developing new tools for data analysis and visualization." /> */}
         </ul>
       </div>
     </div>
