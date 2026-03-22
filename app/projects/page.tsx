@@ -12,22 +12,22 @@ import { motion } from "framer-motion";
 const FramerImage = motion(Image);
 
 const FeaturedProject = ({type, title, summary, img, link, github} : {type: any, title: any, summary: any, img: any, link: any, github: any}) => {
-  return <article className="w-full flex items-center justify-between
-    rounded-3xl border border-solid border-dark bg-light shadow-2xl p-12 relative rounded-br-2xl
+  return <article className="w-full flex flex-col lg:flex-row items-center justify-between
+    rounded-3xl border border-solid border-dark bg-light shadow-2xl p-6 md:p-12 relative rounded-br-2xl
     dark:border-light dark:bg-dark">
       <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark dark:bg-light rounded-br-3xl" />
       <Link href={link} target="_blank"
-      className="w-1/2 cursor-pointer overflow-hidden rounded-lg"
+      className="w-full lg:w-1/2 cursor-pointer overflow-hidden rounded-lg"
       >
         <FramerImage src={img} alt={title} className="w-full h-auto"
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.2 }}
         />
       </Link>
-      <div className="w-1/2 flex flex-col items-start justify-between pl-6">
+      <div className="w-full lg:w-1/2 flex flex-col items-start justify-between pl-0 pt-4 lg:pl-6 lg:pt-0">
         <span className="text-primary dark:text-primaryDark font-medium text-xl">{type}</span>
         <Link href={link} target="_blank" className="hover:underline underline-offset-2">
-        <h2 className="my-2 w-full text-left text-4xl font-bold">{title}</h2>
+        <h2 className="my-2 w-full text-left text-2xl md:text-4xl font-bold">{title}</h2>
         </Link>
         <p className="my-2 font-medium text-dark dark:text-light">{summary}</p>
         <div className="mt-2 flex items-center">
@@ -87,8 +87,8 @@ export default function About() {
       <main className="flex w-full flex-col items-center justify-center
       bg-light text-dark dark:bg-dark dark:text-light">
         <Layout className="pt-16">
-          <AnimatedText text="Imagination Trumps Knowledge!" className="mb-16" />
-          <div className="grid grid-cols-12 gap-24">
+          <AnimatedText text="Imagination Trumps Knowledge!" className="mb-8 lg:mb-16" />
+          <div className="grid grid-cols-12 gap-8 md:gap-16 lg:gap-24">
             <div className="col-span-12">
               <FeaturedProject 
               type="Featured Project"
@@ -101,7 +101,7 @@ export default function About() {
               github="/"
               />
             </div>
-            <div className="col-span-6">
+            <div className="col-span-12 md:col-span-6">
               <Project 
               type="Project"
               title="Crypto Screener Application"
@@ -110,7 +110,7 @@ export default function About() {
               github="/"
               />
             </div>
-            <div className="col-span-6">
+            <div className="col-span-12 md:col-span-6">
               <Project 
               type="Project"
               title="Crypto Screener Application"
@@ -131,7 +131,7 @@ export default function About() {
               github="/"
               />
             </div>
-            <div className="col-span-6">
+            <div className="col-span-12 md:col-span-6">
               <Project 
               type="Project"
               title="Crypto Screener Application"
@@ -140,7 +140,7 @@ export default function About() {
               github="/"
               />
             </div>
-            <div className="col-span-6">
+            <div className="col-span-12 md:col-span-6">
               <Project 
               type="Project"
               title="Crypto Screener Application"

@@ -4,7 +4,7 @@ import LiIcon from './LiIcon';
 
 const Details = ({type, time, place, info} : {type: any, time: any, place: any, info: any}) => {
   const ref = useRef(null);
-  return <li ref={ref} className='my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-left justify-between'>
+  return <li ref={ref} className='my-8 first:mt-0 last:mb-0 w-full md:w-[60%] mx-auto flex flex-col items-left justify-between'>
     <LiIcon reference={ref} />
     <motion.div
     initial={{y: 50}}
@@ -33,11 +33,11 @@ const Education = () => {
   )
 
   return (
-    <div className='my-64'>
-      <h2 className='font-bold text-8xl mb-32 w-full text-center'>
+    <div className='my-32 md:my-64'>
+      <h2 className='font-bold text-4xl md:text-6xl lg:text-8xl mb-16 md:mb-32 w-full text-center'>
         Education
       </h2>
-      <div ref={ref} className='w-[75%] mx-auto relative'>
+      <div ref={ref} className='w-full md:w-[75%] mx-auto relative'>
         <motion.div
         style={{ scaleY: scrollYProgress }}
         className='absolute left-9 top-0 w-[4px] h-full bg-dark dark:bg-light origin-top' />

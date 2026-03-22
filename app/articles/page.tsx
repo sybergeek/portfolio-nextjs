@@ -93,8 +93,8 @@ export default function Articles() {
       <main className="flex w-full flex-col items-center justify-center overflow-hidden
       bg-light text-dark dark:bg-dark dark:text-light">
         <Layout className="pt-16">
-          <AnimatedText text="Words Can Change The World!" className="mb-16" />
-          <ul className="grid grid-cols-2 gap-16">
+          <AnimatedText text="Words Can Change The World!" className="mb-8 lg:mb-16" />
+          <ul className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
             <FeaturedArticle
             img={article1}
             title="Build A Custom Pagination Component In Reactjs From Scratch"
@@ -113,7 +113,7 @@ export default function Articles() {
             link="/"
             />
           </ul>
-          <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">All Articles</h2>
+          <h2 className="font-bold text-2xl md:text-4xl w-full text-center my-8 mt-16 md:my-16 md:mt-32">All Articles</h2>
           <ul>
             <Article
             title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"

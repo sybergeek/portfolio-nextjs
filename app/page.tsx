@@ -13,13 +13,13 @@ export default function Home() {
   return (
     <>
       <main className="flex items-center bg-light text-dark w-full min-h-screen dark:text-light dark:bg-dark">
-        <Layout className="pt-0">
-          <div className="flex items-center justify-between w-full">
-            <div className="w-1/2">
+        <Layout className="pt-0 md:pt-0">
+          <div className="flex flex-col-reverse lg:flex-row items-center justify-between w-full gap-8">
+            <div className="w-full lg:w-1/2">
               <Image src={profilePic} alt="Abhishek Sen" className="w-full h-auto" />
             </div>
-            <div className="w-1/2 flex flex-col items-center self-center">
-              <AnimatedText text="Turning Vision Into Reality With Code And Design." className="!text-6xl text-left" />
+            <div className="w-full lg:w-1/2 flex flex-col items-center self-center">
+              <AnimatedText text="Turning Vision Into Reality With Code And Design." className="!text-3xl sm:!text-4xl md:!text-5xl lg:!text-6xl text-left xl:text-left" />
               <p className="my-8 text-base font-medium">
               As a skilled full-stack developer, I am dedicated to turning ideas into innovative web applications. 
 Explore my latest projects and articles, showcasing my expertise in React.js and web development.
@@ -45,7 +45,7 @@ Explore my latest projects and articles, showcasing my expertise in React.js and
         </Layout>
 
         <HireMe />
-        <div className="absolute right-8 bottom-8 inline-block w-24">
+        <div className="absolute right-8 bottom-8 inline-block w-16 md:w-24 hidden md:block">
           <Image src={lightBulb} alt="Abhishek Sen" className="w-full h-auto" />
         </div>
       </main>
