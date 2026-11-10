@@ -8,7 +8,7 @@ import Logo from './Logo';
 import { motion } from "framer-motion";
 import useThemeSwitcher from './hooks/useThemeSwitcher';
 
-const CustomLink = ({href, title, className=""} : {href: any, title: any, className: any}) => {
+const CustomLink = ({href, title, className=""} : {href: string, title: string, className?: string}) => {
   const pathname = usePathname();
   return (
     <Link href={href} className={`${className} relative group`}>
@@ -51,24 +51,22 @@ const NavBar = () => {
   }
 
   return (
-    <header className='w-full px-8 md:px-16 lg:px-32 py-8 font-medium flex items-center justify-between
-    bg-light text-dark dark:bg-dark dark:text-light sticky top-0 z-10
-    border-b-2 border-solid border-dark dark:border-light relative'>
+    <header className='sticky top-0 z-40 grid min-h-[76px] w-full grid-cols-[1fr_auto_1fr] items-center border-b border-ink/10 bg-light/95 px-6 py-3 text-dark backdrop-blur-md dark:border-light/10 dark:bg-dark/95 sm:px-10 lg:px-16'>
 
-      <button className='flex-col justify-center items-center lg:hidden flex' onClick={handleClick} aria-label="Toggle menu">
+      <button className='col-start-1 flex flex-col items-center justify-center justify-self-start lg:hidden' onClick={handleClick} aria-label="Toggle menu">
         <span className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
         <span className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
         <span className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
       </button>
 
       {/* Desktop nav */}
-      <nav className='hidden lg:flex items-center justify-center flex-wrap'>
-        <CustomLink href="/" title="Home" className='mr-4' />
-        <CustomLink href="/about" title="About" className='mx-4' />
-        <CustomLink href="/projects" title="Projects" className='mx-4' />
-        <CustomLink href="/articles" title="Articles" className='ml-4' />
+      <nav className='col-start-1 hidden items-center justify-start gap-7 text-sm lg:flex'>
+        <CustomLink href="/" title="Home" />
+        <CustomLink href="/about" title="About" />
+        <CustomLink href="/projects" title="Work" />
+        <CustomLink href="/articles" title="Notes" />
       </nav>
-      <nav className='hidden lg:flex items-center justify-center flex-wrap'>
+      <nav className='col-start-3 hidden items-center justify-end lg:flex'>
         <motion.a href="https://github.com/sybergeek" target={"_blank"}
         whileHover={{ y:-2 }}
         whileTap={{ scale:0.9 }}
@@ -82,7 +80,7 @@ const NavBar = () => {
           <LinkedInIcon />
         </motion.a>
 
-        <button
+        <button aria-label="Toggle color theme"
         onClick={() => setMode(mode === "light" ? "dark" : "light") }
         className={`ml-3 flex items-center justify-center rounded-full p-1
         ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}
@@ -101,13 +99,12 @@ const NavBar = () => {
       <motion.div
       initial={{scale: 0, opacity: 0, x: "-50%", y: "-50%"}}
       animate={{scale: 1, opacity: 1}}
-      className='min-w-[70vw] flex flex-col justify-between items-center fixed top-1/2 left-1/2
-      -translate-x-1/2 -translate-y-1/2 z-30 bg-dark/90 dark:bg-light/75 rounded-lg backdrop-blur-md py-32'>
+      className='fixed left-4 right-4 top-20 z-30 flex flex-col items-center justify-between rounded-2xl border border-light/20 bg-dark/95 py-16 backdrop-blur-md dark:border-dark/20 dark:bg-light/95'>
         <nav className='flex items-center flex-col justify-center'>
           <CustomMobileLink href="/" title="Home" className='' toggle={handleClick} />
           <CustomMobileLink href="/about" title="About" className='' toggle={handleClick} />
-          <CustomMobileLink href="/projects" title="Projects" className='' toggle={handleClick} />
-          <CustomMobileLink href="/articles" title="Articles" className='' toggle={handleClick} />
+          <CustomMobileLink href="/projects" title="Work" className='' toggle={handleClick} />
+          <CustomMobileLink href="/articles" title="Notes" className='' toggle={handleClick} />
         </nav>
         <nav className='flex items-center justify-center flex-wrap mt-2'>
           <motion.a href="https://github.com/sybergeek" target={"_blank"}
@@ -139,7 +136,7 @@ const NavBar = () => {
       </motion.div>
       : null}
 
-      <div className='absolute left-[50%] top-2 translate-x-[-50%]'>
+      <div className='col-start-2 row-start-1 flex items-center justify-center'>
         <Logo />
       </div>
     </header>

@@ -1,157 +1,28 @@
 "use client";
 
-import Head from "next/head";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import AnimatedText from "../components/AnimatedText";
-import { GithubIcon } from "../components/Icons";
-import Layout from "../components/Layout";
-import project1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
 import { motion } from "framer-motion";
+import Layout from "../components/Layout";
+import { GithubIcon, LinkArrow } from "../components/Icons";
+import crypto from "../../public/images/projects/crypto-screener-cover-image.jpg";
+import fashion from "../../public/images/projects/fashion-studio-website.jpg";
+import agency from "../../public/images/projects/agency-website-cover-image.jpg";
+import devdreaming from "../../public/images/projects/devdreaming.jpg";
 
-const FramerImage = motion(Image);
+type Project = { title: string; type: string; summary: string; image: StaticImageData; link: string; github: string; tags: string[] };
+const projects: Project[] = [
+  { title: "Crypto Screener", type: "Product interface", summary: "A fast, approachable way to explore crypto markets, compare currencies, and make sense of noisy data.", image: crypto, link: "https://github.com/sybergeek", github: "https://github.com/sybergeek", tags: ["React", "Tailwind", "Recharts"] },
+  { title: "Fashion Studio", type: "E-commerce concept", summary: "A tactile editorial storefront designed to make browsing feel more like discovery.", image: fashion, link: "https://github.com/sybergeek", github: "https://github.com/sybergeek", tags: ["React", "Motion", "UI"] },
+  { title: "Agency Website", type: "Web experience", summary: "A flexible, expressive marketing site with a strong visual voice and clear conversion paths.", image: agency, link: "https://github.com/sybergeek", github: "https://github.com/sybergeek", tags: ["Next.js", "Design", "Responsive"] },
+  { title: "DevDreaming", type: "Community platform", summary: "A clean home for sharing practical ideas, tutorials, and experiments with other developers.", image: devdreaming, link: "https://github.com/sybergeek", github: "https://github.com/sybergeek", tags: ["JavaScript", "Content", "UX"] },
+];
 
-const FeaturedProject = ({type, title, summary, img, link, github} : {type: any, title: any, summary: any, img: any, link: any, github: any}) => {
-  return <article className="w-full flex flex-col lg:flex-row items-center justify-between
-    rounded-3xl border border-solid border-dark bg-light shadow-2xl p-6 md:p-12 relative rounded-br-2xl
-    dark:border-light dark:bg-dark">
-      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark dark:bg-light rounded-br-3xl" />
-      <Link href={link} target="_blank"
-      className="w-full lg:w-1/2 cursor-pointer overflow-hidden rounded-lg"
-      >
-        <FramerImage src={img} alt={title} className="w-full h-auto"
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.2 }}
-        />
-      </Link>
-      <div className="w-full lg:w-1/2 flex flex-col items-start justify-between pl-0 pt-4 lg:pl-6 lg:pt-0">
-        <span className="text-primary dark:text-primaryDark font-medium text-xl">{type}</span>
-        <Link href={link} target="_blank" className="hover:underline underline-offset-2">
-        <h2 className="my-2 w-full text-left text-2xl md:text-4xl font-bold">{title}</h2>
-        </Link>
-        <p className="my-2 font-medium text-dark dark:text-light">{summary}</p>
-        <div className="mt-2 flex items-center">
-          <Link href={github} target="_blank" className="w-10">
-            <GithubIcon />
-          </Link>
-          <Link href={link} target="_blank"
-          className="ml-4 rounded-lg bg-dark text-light dark:bg-light dark:text-dark p-2 px-6 text-lg font-semibold"
-          >
-            Visit Project
-          </Link>
-        </div>
-      </div>
-    </article>
+function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
+  return <motion.article whileHover={{ y: -6 }} transition={{ duration: 0.2 }} className={featured ? "group overflow-hidden rounded-3xl border border-ink/10 bg-dark text-light dark:border-light/10" : "group overflow-hidden rounded-3xl border border-ink/10 bg-light dark:border-light/10 dark:bg-dark"}>
+    <Link href={project.link} target="_blank" className="block overflow-hidden"><Image src={project.image} alt={project.title} className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-105" /></Link>
+    <div className="p-7 sm:p-9"><p className={featured ? "eyebrow text-mint" : "eyebrow"}>{project.type}</p><h2 className="mt-3 text-3xl font-bold tracking-tight">{project.title}</h2><p className={featured ? "mt-4 max-w-2xl leading-7 text-light/70" : "mt-4 leading-7 text-dark/65 dark:text-light/65"}>{project.summary}</p><div className="mt-7 flex flex-wrap items-center gap-2">{project.tags.map(tag => <span key={tag} className={featured ? "rounded-full border border-light/20 px-3 py-1 text-xs" : "rounded-full border border-ink/10 px-3 py-1 text-xs dark:border-light/10"}>{tag}</span>)}<Link href={project.github} target="_blank" aria-label={`${project.title} on GitHub`} className="ml-auto w-5"><GithubIcon /></Link><Link href={project.link} target="_blank" className={featured ? "inline-flex items-center gap-2 rounded-full bg-mint px-4 py-2 text-xs font-bold text-dark" : "inline-flex items-center gap-2 rounded-full bg-dark px-4 py-2 text-xs font-bold text-light dark:bg-light dark:text-dark"}>View project <LinkArrow className="w-4" /></Link></div></div>
+  </motion.article>;
 }
 
-const Project = ({type, title, img, link, github} : {type: any, title: any, img: any, link: any, github: any}) => {
-  return <article className="w-full flex flex-col items-center justify-center
-    rounded-2xl border border-solid border-dark bg-light shadow-2xl p-6 relative
-    dark:border-light dark:bg-dark">
-      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[102.5%]
-      rounded-[2rem] bg-dark dark:bg-light rounded-br-3xl" />
-      <Link href={link} target="_blank"
-      className="w-full cursor-pointer overflow-hidden rounded-lg"
-      >
-        <FramerImage src={img} alt={title} className="w-full h-auto"
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.2 }}
-        />
-      </Link>
-      <div className="w-full flex flex-col items-start justify-between mt-4">
-        <span className="text-primary dark:text-primaryDark font-medium text-xl">{type}</span>
-        <Link href={link} target="_blank" className="hover:underline underline-offset-2">
-        <h2 className="my-2 w-full text-left text-3xl font-bold">{title}</h2>
-        </Link>
-        <div className="w-full mt-2 flex items-center justify-between">
-        <Link href={link} target="_blank"
-          className="text-lg font-semibold underline"
-          >
-            Visit
-          </Link>
-          <Link href={github} target="_blank" className="w-8">
-            <GithubIcon />
-          </Link>
-        </div>
-      </div>
-    </article>
-}
-
-export default function About() {
-  return (
-    <>
-      <Head>
-        <title>Abhishek Sen | Projects Page</title>
-        <meta name="description" content="any description" />
-      </Head>
-      <main className="flex w-full flex-col items-center justify-center
-      bg-light text-dark dark:bg-dark dark:text-light">
-        <Layout className="pt-16">
-          <AnimatedText text="Imagination Trumps Knowledge!" className="mb-8 lg:mb-16" />
-          <div className="grid grid-cols-12 gap-8 md:gap-16 lg:gap-24">
-            <div className="col-span-12">
-              <FeaturedProject 
-              type="Featured Project"
-              title="Crypto Screener Application"
-              summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-              It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-              local currency."
-              img={project1}
-              link="/"
-              github="/"
-              />
-            </div>
-            <div className="col-span-12 md:col-span-6">
-              <Project 
-              type="Project"
-              title="Crypto Screener Application"
-              img={project1}
-              link="/"
-              github="/"
-              />
-            </div>
-            <div className="col-span-12 md:col-span-6">
-              <Project 
-              type="Project"
-              title="Crypto Screener Application"
-              img={project1}
-              link="/"
-              github="/"
-              />
-            </div>
-            <div className="col-span-12">
-              <FeaturedProject 
-              type="Featured Project"
-              title="Crypto Screener Application"
-              summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-              It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-              local currency."
-              img={project1}
-              link="/"
-              github="/"
-              />
-            </div>
-            <div className="col-span-12 md:col-span-6">
-              <Project 
-              type="Project"
-              title="Crypto Screener Application"
-              img={project1}
-              link="/"
-              github="/"
-              />
-            </div>
-            <div className="col-span-12 md:col-span-6">
-              <Project 
-              type="Project"
-              title="Crypto Screener Application"
-              img={project1}
-              link="/"
-              github="/"
-              />
-            </div>
-          </div>
-        </Layout>
-      </main>
-    </>
-  );
-}
+export default function Projects() { return <main className="bg-light text-dark dark:bg-dark dark:text-light"><Layout className="section-shell pb-24 pt-16 lg:pb-32 lg:pt-24"><header className="max-w-3xl"><p className="eyebrow">Selected work</p><h1 className="mt-5 text-6xl font-bold leading-[0.95] tracking-[-0.07em] sm:text-8xl">Things I&apos;ve made.</h1><p className="mt-7 max-w-xl text-lg leading-8 text-dark/65 dark:text-light/65">A handful of interfaces and products that reflect how I think: clear, curious, and built for real people.</p></header><div className="mt-16 grid gap-7 md:grid-cols-2"><div className="md:col-span-2"><ProjectCard project={projects[0]} featured /></div>{projects.slice(1).map(project => <ProjectCard key={project.title} project={project} />)}</div></Layout></main>; }

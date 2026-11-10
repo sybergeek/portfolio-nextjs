@@ -19,18 +19,22 @@ const config: Config = {
         sans: ['var(--font-montserrat)', ...fontFamily.sans]
       },
       colors: {
-        dark: "#1b1b1b",
-        light: "#f5f5f5",
-        primary: "#b63e96", // 240,86,199
-        primaryDark: "#58e6d9", // 80,230,217
+        dark: "#101820",
+        light: "#f8f7f4",
+        primary: "#ef6f51",
+        primaryDark: "#8ee3d0",
+        ink: "#101820",
+        paper: "#f8f7f4",
+        accent: "#ef6f51",
+        mint: "#8ee3d0",
       },
       animation: {
         'spin-slow': 'spin 8s linear infinite'
       },
       backgroundImage: {
-        circularLight: 'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 5px,#f5f5f5 100px);',
-        circularLightMd: 'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 5px,#f5f5f5 80px);',
-        circularLightSm: 'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 5px,#f5f5f5 60px);',
+        circularLight: 'repeating-radial-gradient(rgba(16,24,32,0.13) 1px,#f8f7f4 3px,#f8f7f4 100px);',
+        circularLightMd: 'repeating-radial-gradient(rgba(16,24,32,0.13) 1px,#f8f7f4 3px,#f8f7f4 80px);',
+        circularLightSm: 'repeating-radial-gradient(rgba(16,24,32,0.13) 1px,#f8f7f4 3px,#f8f7f4 60px);',
       },
     },
   },

@@ -1,23 +1,23 @@
 import React, { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
-import LiIcon from './LiIcon';
 
-const Details = ({position, company, companyLink, time, address, work} : {position: any, company: any, companyLink: any, time: any, address: any, work: any}) => {
+const Details = ({position, company, companyLink, time, address, work} : {position: string, company: string, companyLink: string, time: string, address: string, work: string}) => {
   const ref = useRef(null);
-  return <li ref={ref} className='my-8 first:mt-0 last:mb-0 w-full md:w-[60%] mx-auto flex flex-col items-center justify-between'>
-    <LiIcon reference={ref} />
+  return <li ref={ref} className='relative grid w-full grid-cols-[2.5rem_1fr] gap-5 py-6 first:pt-0 last:pb-0 md:grid-cols-[4rem_1fr] md:gap-8'>
+    <div className='relative flex justify-center'><span className='relative z-10 mt-1 h-4 w-4 rounded-full border-4 border-light bg-accent shadow-[0_0_0_4px_rgba(239,111,81,0.16)] dark:border-dark' /></div>
     <motion.div
-    initial={{y: 50}}
-    whileInView={{y: 0}}
-    transition={{duration: 0.5, type: "spring"}}
+    initial={{opacity: 0, y: 18}}
+    whileInView={{opacity: 1, y: 0}}
+    viewport={{ once: true, margin: "-80px" }}
+    transition={{duration: 0.45}}
+    className='min-w-0 rounded-2xl border border-ink/10 bg-light p-5 shadow-sm dark:border-light/10 dark:bg-dark sm:p-7'
     >
-      <h3 className='capitalize font-bold text-2xl'>{position}&nbsp;<a href={companyLink}
+      <div className='flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between'><h3 className='text-xl font-bold leading-tight sm:text-2xl'>{position}&nbsp;<a href={companyLink}
       target="_blank"
-      className='capitalize text-primary dark:text-primaryDark'>@{company}</a></h3>
-      <span className='capitalize font-medium text-dark/75 dark:text-light/75'>
-        {time} | {address}
-      </span>
-      <p className='font-medium w-full'>
+      rel='noreferrer'
+      className='text-accent'>@{company}</a></h3><span className='shrink-0 text-xs font-bold uppercase tracking-[0.14em] text-dark/45 dark:text-light/45 sm:pt-1'>{time}</span></div>
+      <p className='mt-2 text-sm font-medium text-dark/55 dark:text-light/55'>{address}</p>
+      <p className='mt-4 text-sm leading-7 text-dark/70 dark:text-light/70 sm:text-base'>
         {work}
       </p>
     </motion.div>
@@ -35,15 +35,15 @@ const Experience = () => {
   )
 
   return (
-    <div className='my-32 md:my-64'>
-      <h2 className='font-bold text-4xl md:text-6xl lg:text-8xl mb-16 md:mb-32 w-full text-center'>
+    <div className='my-28 md:my-40'>
+      <h2 className='mb-12 text-center text-4xl font-bold tracking-[-0.05em] md:mb-16 md:text-6xl'>
         Experience
       </h2>
-      <div ref={ref} className='w-full md:w-[75%] mx-auto relative'>
+      <div ref={ref} className='relative mx-auto w-full max-w-4xl'>
         <motion.div
         style={{ scaleY: scrollYProgress }}
-        className='absolute left-9 top-0 w-[4px] h-full bg-dark dark:bg-light origin-top' />
-        <ul className='w-full flex flex-col items-start justify-between ml-4'>
+        className='absolute bottom-0 left-[1.18rem] top-0 w-px origin-top bg-accent/40 md:left-[1.9rem]' />
+        <ul className='relative flex w-full flex-col'>
           <Details position="Software Engineer 2" company="JPMorgan Chase" companyLink="https://www.jpmorganchase.com/"
           time="2024-Present" address="Bengaluru, India"
           work="Designed and developed the firmwide centralized workflow monitoring system using dynamic filtering and visualization tools, enhancing UX and reporting, reducing user toil by 1 hour daily per user. Tech Stack: Java, Spring, React." />

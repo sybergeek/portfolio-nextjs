@@ -1,99 +1,18 @@
 "use client";
 
-import Head from "next/head";
 import Image from "next/image";
-import AnimatedText from "../components/AnimatedText";
+import Link from "next/link";
+import profilePic from "../../public/images/profile/developer-pic-2.jpg";
 import Layout from "../components/Layout";
-import profilePic from "../../public/images/profile/developer-pic-2.jpg"
-import { useEffect, useRef } from "react";
-import { useInView, useMotionValue, useSpring } from "framer-motion";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
 import Education from "../components/Education";
 
-// const AnimatedNumbers = ({value} : {value: any}) => {
-//   const ref = useRef(null);
-//   const motionValue = useMotionValue(0);
-//   const springValue = useSpring(motionValue, { duration: 3000 });
-//   const isInView = useInView(ref, { once: true });
-
-//   useEffect(() => {
-//     if (isInView) {
-//       motionValue.set(value);
-//     }
-//   }, [isInView, value, motionValue])
-
-//   useEffect(() => {
-//     springValue.on("change", (latest) => {
-//       if (ref.current && latest.toFixed(0) <= value) {
-//         ref.current.textContent = latest.toFixed(0);
-//       }
-//     })
-//   })
-
-//   return <span ref={ref}></span>
-// }
-
 export default function About() {
-  return (
-    <>
-      <Head>
-        <title>Abhishek Sen | About Page</title>
-        <meta name="description" content="any description" />
-      </Head>
-      <main className="flex w-full flex-col items-center justify-center bg-light text-dark dark:bg-dark dark:text-light">
-        <Layout className="pt-16">
-          <AnimatedText text="Passion Fuels Purpose!" className="mb-8 lg:mb-16" />
-          <div className="grid w-full grid-cols-1 md:grid-cols-8 gap-8 lg:gap-16">
-            <div className="col-span-1 md:col-span-3 flex flex-col items-start justify-start order-2 md:order-1">
-              <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75">Biography</h2>
-              <p className="font-medium">
-                Hi, I'm Abhishek, a full-stack web developer with a passion for creating beautiful, functional, 
-                and user-centered digital experiences. With 3+ years of experience in the field. I am always looking for 
-                new and innovative ways to bring my clients' visions to life.
-              </p>
-              <p className="my-4 font-medium">
-                I believe that design is about more than just making things look pretty – it's about solving problems and 
-                creating intuitive, enjoyable experiences for users.
-              </p>
-              <p className="font-medium">
-                Whether I'm working on a website, mobile app, or 
-                other digital product, I bring my commitment to design excellence and user-centered thinking to 
-                every project I work on. I look forward to the opportunity to bring my skills and passion to your next project.
-              </p>
-            </div>
-            <div className="col-span-1 md:col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark bg-light dark:border-light dark:bg-dark p-8 order-1 md:order-2">
-              <div className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[1.5rem] bg-dark dark:bg-light" />
-              <Image src={profilePic} alt="Abhishek Sen" className="w-full h-auto rounded-2xl" />
-            </div>
-            <div className="col-span-1 md:col-span-2 flex flex-row md:flex-col items-center md:items-end justify-between order-3">
-              {/* <div className="flex flex-col items-end justify-center">
-                <span className="inline-block text-7xl font-bold">
-                  <AnimatedNumbers value={50} />+
-                  50+
-                </span>
-                <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75">satisfied clients</h2>
-              </div> */}
-              <div className="flex flex-col items-end justify-center">
-                <span className="inline-block text-4xl md:text-5xl lg:text-7xl font-bold">
-                  10+
-                </span>
-                <h2 className="text-base md:text-xl font-medium capitalize text-dark/75 dark:text-light/75">projects completed</h2>
-              </div>
-              <div className="flex flex-col items-end justify-center">
-                <span className="inline-block text-4xl md:text-5xl lg:text-7xl font-bold">
-                  3+
-                </span>
-                <h2 className="text-base md:text-xl font-medium capitalize text-dark/75 dark:text-light/75">years of experience</h2>
-              </div>
-            </div>
-          </div>
-
-          <Skills />
-          <Experience />
-          <Education />
-        </Layout>
-      </main>
-    </>
-  );
+  return <main className="bg-light text-dark dark:bg-dark dark:text-light"><Layout className="section-shell pb-20 pt-16 lg:pb-32 lg:pt-24">
+    <header className="max-w-4xl"><p className="eyebrow">About me</p><h1 className="mt-5 text-5xl font-bold leading-[0.95] tracking-[-0.06em] sm:text-7xl">I like making complicated things feel simple.</h1></header>
+    <section className="mt-20 grid gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-20"><div className="relative max-w-sm"><div className="absolute -bottom-4 -left-4 h-full w-full rounded-3xl bg-accent/20" /><Image src={profilePic} alt="Abhishek Sen" className="relative aspect-[4/5] w-full rounded-3xl object-cover object-top" /></div><div className="max-w-2xl text-lg leading-8 text-dark/70 dark:text-light/70"><p>Hi, I&apos;m Abhishek — a full-stack software engineer with a soft spot for thoughtful interfaces and resilient systems. I&apos;ve spent the last few years building internal products that help people make faster, better decisions.</p><p className="mt-6">My best work happens at the intersection of design and engineering: understanding the real problem, finding the simplest useful shape, then building it with care.</p><Link href="mailto:abhishek13dgp5@gmail.com" className="mt-8 inline-flex font-bold text-dark underline decoration-accent decoration-2 underline-offset-8 dark:text-light">Start a conversation ↗</Link></div></section>
+    <section className="mt-24 grid grid-cols-2 gap-6 border-y border-ink/10 py-8 dark:border-light/10 sm:grid-cols-4"><div><p className="text-3xl font-bold text-accent">3+</p><p className="mt-1 text-sm text-dark/60 dark:text-light/60">years experience</p></div><div><p className="text-3xl font-bold text-accent">10+</p><p className="mt-1 text-sm text-dark/60 dark:text-light/60">projects completed</p></div><div><p className="text-3xl font-bold text-accent">3</p><p className="mt-1 text-sm text-dark/60 dark:text-light/60">teams supported</p></div><div><p className="text-3xl font-bold text-accent">∞</p><p className="mt-1 text-sm text-dark/60 dark:text-light/60">things to learn</p></div></section>
+    <Skills /><Experience /><Education />
+  </Layout></main>;
 }

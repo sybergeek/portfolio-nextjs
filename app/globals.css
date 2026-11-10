@@ -2,28 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+:root { color-scheme: light; }
+:root.dark { color-scheme: dark; }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  color: #101820;
+  background: #f8f7f4;
+  font-family: "Avenir Next", Avenir, "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.01em;
+  font-feature-settings: "ss01" on, "cv11" on;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dark body { color: #f8f7f4; background: #101820; }
+
+::selection { color: #101820; background: #8ee3d0; }
+
+@layer components {
+  .eyebrow { @apply text-xs font-bold uppercase tracking-[0.24em] text-accent; }
+  .section-shell { @apply mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-16; }
+  .outline-button { @apply inline-flex items-center gap-2 rounded-full border border-ink px-5 py-3 text-sm font-bold transition hover:-translate-y-0.5 hover:bg-ink hover:text-paper dark:border-paper dark:hover:bg-paper dark:hover:text-ink; }
 }
 
 @layer utilities {
