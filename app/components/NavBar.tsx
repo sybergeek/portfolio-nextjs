@@ -11,7 +11,7 @@ import useThemeSwitcher from './hooks/useThemeSwitcher';
 const CustomLink = ({href, title, className=""} : {href: string, title: string, className?: string}) => {
   const pathname = usePathname();
   return (
-    <Link href={href} className={`${className} relative group`}>
+    <Link href={href} className={`${className} relative group text-dark dark:text-light`}>
       {title}
       <span className={`
       h-[1px] inline-block bg-dark dark:bg-light absolute left-0 -bottom-0.5
@@ -51,7 +51,7 @@ const NavBar = () => {
   }
 
   return (
-    <header className='sticky top-0 z-40 grid min-h-[76px] w-full grid-cols-[1fr_auto_1fr] items-center border-b border-ink/10 bg-light/95 px-6 py-3 text-dark backdrop-blur-md dark:border-light/10 dark:bg-dark/95 sm:px-10 lg:px-16'>
+    <header className='sticky top-0 z-40 grid min-h-[76px] w-full grid-cols-3 items-center border-b border-ink/10 bg-light/95 px-4 py-3 text-dark backdrop-blur-md dark:border-light/10 dark:bg-dark/95 sm:px-10 lg:grid-cols-[1fr_auto_1fr] lg:px-16'>
 
       <button className='col-start-1 flex flex-col items-center justify-center justify-self-start lg:hidden' onClick={handleClick} aria-label="Toggle menu">
         <span className={`bg-dark dark:bg-light block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
@@ -60,23 +60,23 @@ const NavBar = () => {
       </button>
 
       {/* Desktop nav */}
-      <nav className='col-start-1 hidden items-center justify-start gap-7 text-sm lg:flex'>
+      <nav className='col-start-1 hidden items-center justify-start gap-7 text-sm text-dark dark:text-light lg:flex'>
         <CustomLink href="/" title="Home" />
         <CustomLink href="/about" title="About" />
         <CustomLink href="/projects" title="Work" />
         <CustomLink href="/articles" title="Notes" />
       </nav>
-      <nav className='col-start-3 hidden items-center justify-end lg:flex'>
+      <nav className='col-start-3 hidden items-center justify-end text-dark dark:text-light lg:flex'>
         <motion.a href="https://github.com/sybergeek" target={"_blank"}
         whileHover={{ y:-2 }}
         whileTap={{ scale:0.9 }}
-        className='w-6 mx-3'>
+          className='mx-3 w-6 text-dark dark:text-light'>
           <GithubIcon />
         </motion.a>
         <motion.a href="https://linkedin.com/in/abhishek-sen-url" target={"_blank"}
         whileHover={{ y:-2 }}
         whileTap={{ scale:0.9 }}
-        className='w-6 mx-3'>
+          className='mx-3 w-6 text-dark dark:text-light'>
           <LinkedInIcon />
         </motion.a>
 
@@ -97,10 +97,10 @@ const NavBar = () => {
       {/* Mobile nav */}
       {isOpen ?
       <motion.div
-      initial={{scale: 0, opacity: 0, x: "-50%", y: "-50%"}}
-      animate={{scale: 1, opacity: 1}}
-      className='fixed left-4 right-4 top-20 z-30 flex flex-col items-center justify-between rounded-2xl border border-light/20 bg-dark/95 py-16 backdrop-blur-md dark:border-dark/20 dark:bg-light/95'>
-        <nav className='flex items-center flex-col justify-center'>
+      initial={{ scale: 0.98, opacity: 0, y: -8 }}
+      animate={{ scale: 1, opacity: 1, y: 0 }}
+      className='fixed left-4 right-4 top-20 z-30 flex max-h-[calc(100dvh-6rem)] flex-col items-center justify-between overflow-y-auto rounded-2xl border border-light/20 bg-dark/95 py-12 backdrop-blur-md dark:border-dark/20 dark:bg-light/95 sm:py-16'>
+        <nav className='flex flex-col items-center justify-center text-light dark:text-dark'>
           <CustomMobileLink href="/" title="Home" className='' toggle={handleClick} />
           <CustomMobileLink href="/about" title="About" className='' toggle={handleClick} />
           <CustomMobileLink href="/projects" title="Work" className='' toggle={handleClick} />
@@ -110,13 +110,13 @@ const NavBar = () => {
           <motion.a href="https://github.com/sybergeek" target={"_blank"}
           whileHover={{ y:-2 }}
           whileTap={{ scale:0.9 }}
-          className='w-6 mx-3 bg-light dark:bg-dark rounded-full sm:mx-1'>
+          className='mx-3 w-6 rounded-full bg-light text-dark dark:bg-dark dark:text-light sm:mx-1'>
             <GithubIcon />
           </motion.a>
           <motion.a href="https://linkedin.com/in/abhishek-sen-url" target={"_blank"}
           whileHover={{ y:-2 }}
           whileTap={{ scale:0.9 }}
-          className='w-6 mx-3 sm:mx-1'>
+          className='mx-3 w-6 text-dark dark:text-light sm:mx-1'>
             <LinkedInIcon />
           </motion.a>
 

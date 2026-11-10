@@ -21,7 +21,18 @@ const projects: Project[] = [
 function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
   return <motion.article whileHover={{ y: -6 }} transition={{ duration: 0.2 }} className={featured ? "group overflow-hidden rounded-3xl border border-ink/10 bg-dark text-light dark:border-light/10" : "group overflow-hidden rounded-3xl border border-ink/10 bg-light dark:border-light/10 dark:bg-dark"}>
     <Link href={project.link} target="_blank" className="block overflow-hidden"><Image src={project.image} alt={project.title} className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-105" /></Link>
-    <div className="p-7 sm:p-9"><p className={featured ? "eyebrow text-mint" : "eyebrow"}>{project.type}</p><h2 className="mt-3 text-3xl font-bold tracking-tight">{project.title}</h2><p className={featured ? "mt-4 max-w-2xl leading-7 text-light/70" : "mt-4 leading-7 text-dark/65 dark:text-light/65"}>{project.summary}</p><div className="mt-7 flex flex-wrap items-center gap-2">{project.tags.map(tag => <span key={tag} className={featured ? "rounded-full border border-light/20 px-3 py-1 text-xs" : "rounded-full border border-ink/10 px-3 py-1 text-xs dark:border-light/10"}>{tag}</span>)}<Link href={project.github} target="_blank" aria-label={`${project.title} on GitHub`} className="ml-auto w-5"><GithubIcon /></Link><Link href={project.link} target="_blank" className={featured ? "inline-flex items-center gap-2 rounded-full bg-mint px-4 py-2 text-xs font-bold text-dark" : "inline-flex items-center gap-2 rounded-full bg-dark px-4 py-2 text-xs font-bold text-light dark:bg-light dark:text-dark"}>View project <LinkArrow className="w-4" /></Link></div></div>
+    <div className="p-5 sm:p-7 lg:p-9">
+      <p className={featured ? "eyebrow text-mint" : "eyebrow"}>{project.type}</p>
+      <h2 className="mt-3 text-3xl font-bold tracking-tight">{project.title}</h2>
+      <p className={featured ? "mt-4 max-w-2xl leading-7 text-light/70" : "mt-4 leading-7 text-dark/65 dark:text-light/65"}>{project.summary}</p>
+      <div className="mt-7 flex flex-wrap items-center gap-2">
+        {project.tags.map(tag => <span key={tag} className={featured ? "rounded-full border border-light/20 px-3 py-1 text-xs" : "rounded-full border border-ink/10 px-3 py-1 text-xs dark:border-light/10"}>{tag}</span>)}
+        <div className="flex w-full shrink-0 items-center justify-end gap-4 sm:ml-auto sm:w-auto">
+          <Link href={project.github} target="_blank" aria-label={`${project.title} on GitHub`} className="w-5 shrink-0 transition hover:text-accent"><GithubIcon /></Link>
+          <Link href={project.link} target="_blank" className={featured ? "project-cta gap-2 rounded-full bg-mint px-4 py-2 text-xs font-bold leading-none text-dark" : "project-cta gap-2 rounded-full bg-dark px-4 py-2 text-xs font-bold leading-none text-light dark:bg-light dark:text-dark"}><span>View project</span><LinkArrow className="h-4 w-4 flex-none" /></Link>
+        </div>
+      </div>
+    </div>
   </motion.article>;
 }
 
